@@ -10,7 +10,15 @@ dotenv.config();
 
 const app = express();
 
-app.use(cors());
+app.use(
+  cors({
+    origin: [
+      "http://localhost:5173",
+      "https://wageproof-catq5uilm-jaganrajs-projects-c6d8d4c9.vercel.app",
+    ],
+    credentials: true,
+  })
+);
 app.use(express.json());
 app.use("/api/jobs", jobRoutes);
 app.use("/api/worklogs", worklogRoutes);
