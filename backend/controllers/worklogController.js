@@ -116,3 +116,29 @@ exports.getSummary = async (req, res) => {
     });
   }
 };
+exports.getMyLogs = async (req, res) => {
+  try {
+    const logs = await WorkLog.find({
+      worker: req.user.id,
+    }).populate("job");
+
+    res.status(200).json(logs);
+  } catch (error) {
+    res.status(500).json({
+      message: error.message,
+    });
+  }
+};
+exports.getAllLogs = async (req, res) => {
+  try {
+    const logs = await WorkLog.find()
+      .populate("worker")
+      .populate("job");
+
+    res.status(200).json(logs);
+  } catch (error) {
+    res.status(500).json({
+      message: error.message,
+    });
+  }
+};
