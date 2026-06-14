@@ -14,7 +14,7 @@ app.use(
   cors({
     origin: [
       "http://localhost:5173",
-      "https://wageproof-catq5uilm-jaganrajs-projects-c6d8d4c9.vercel.app",
+      "https://wageproof-ten.vercel.app",
     ],
     credentials: true,
   })
